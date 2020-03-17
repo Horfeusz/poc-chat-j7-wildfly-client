@@ -4,7 +4,7 @@ The server provides port 8090 for communication.
 
 There is user ejbuser / password123 in the ApplicationRealm domain.
 
-###Add user to WildFly
+### Add user to WildFly
 ```sh
 add-user.sh -a -u 'ejbuser' -p 'pasword123'
 ```
