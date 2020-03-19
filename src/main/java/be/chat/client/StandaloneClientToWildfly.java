@@ -35,13 +35,18 @@ public class StandaloneClientToWildfly {
     @SuppressWarnings("unchecked")
     private static ChatRemote lookup() throws NamingException {
         Properties properties = new Properties();
-        properties.put("remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED", "false");
+        //properties.put("remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED", "false");
         properties.put("remote.connections", "default");
         properties.put("remote.connection.default.port", "8090");
         properties.put("remote.connection.default.host", "localhost");
-        properties.put("remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS", "false");
-        properties.put("remote.connection.default.username", "ejbuser");
-        properties.put("remote.connection.default.password", "pasword123");
+        //properties.put("remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS", "false");
+
+        //properties.put("remote.connection.default.username", "ejbuser");
+        //properties.put("remote.connection.default.password", "pasword123");
+
+        //properties.put("remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOPLAINTEXT", "false");
+        //properties.put("remote.connection.default.connect.options.org.xnio.Options.SASL_DISALLOWED_MECHANISMS", "JBOSS-LOCAL-USER");
+
         EJBClientConfiguration ejbClientConfiguration = new PropertiesBasedEJBClientConfiguration(properties);
         ContextSelector<EJBClientContext> contextSelector = new ConfigBasedEJBClientContextSelector(ejbClientConfiguration);
         EJBClientContext.setSelector(contextSelector);
